@@ -1,0 +1,229 @@
+.scientific-tools-panel {
+  --tools-control-height: 32px;
+  min-width: 0;
+}
+
+/* Match Models: one quiet surface per execution path, compact rows inside it,
+   and no nested disclosure cards or inventory-management chrome. */
+.settings-dialog .scientific-tools-panel .scientific-tools-list {
+  min-width: 0;
+  gap: 0;
+  padding: 4px;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--settings-radius-card);
+  background: var(--settings-surface);
+  box-shadow: none;
+}
+
+.settings-dialog .scientific-tools-panel .scientific-tool-row {
+  min-width: 0;
+  min-height: 60px;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--settings-radius-control);
+  background: transparent;
+}
+
+.scientific-tool-row + .scientific-tool-row {
+  border-top: 1px solid var(--border-weak-base);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.scientific-tool-logo,
+.scientific-tools-panel .settings-provider-logo {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--settings-radius-control);
+  background: var(--settings-surface-muted);
+  box-shadow: none;
+}
+
+.scientific-tool-logo img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+.scientific-tool-row__copy,
+.scientific-tool-row__title {
+  min-width: 0;
+  display: flex;
+}
+
+.scientific-tool-row__copy {
+  flex-direction: column;
+  gap: 1px;
+}
+
+.scientific-tool-row__title {
+  align-items: baseline;
+  gap: 8px;
+}
+
+.scientific-tool-row__title strong {
+  overflow: hidden;
+  color: var(--text-strong);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scientific-tool-row__title small,
+.scientific-tool-row__copy > span {
+  color: var(--text-weak);
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.scientific-tool-row__title small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.scientific-tool-row__copy > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scientific-tool-row__actions {
+  display: flex;
+  min-width: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.scientific-tool-status {
+  min-height: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 4px;
+  border-radius: var(--settings-radius-pill);
+  background: transparent;
+  color: var(--text-weak);
+  font-size: 11px;
+  font-weight: var(--font-weight-regular);
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.scientific-tool-status[data-tone="warning"] {
+  color: var(--text-warning-base);
+}
+
+.scientific-tool-status[data-tone="danger"] {
+  color: var(--text-danger);
+}
+
+.scientific-tool-status__dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--icon-success-base);
+}
+
+.settings-dialog .scientific-tools-panel [data-component="button"].scientific-tool-action {
+  min-width: 62px;
+  min-height: var(--tools-control-height);
+  height: var(--tools-control-height);
+  padding: 0 10px;
+  border: 0;
+  background: var(--settings-surface-muted);
+  color: var(--text-strong);
+  font-size: 12px;
+  box-shadow: none;
+}
+
+.settings-dialog .scientific-tools-panel [data-component="button"].scientific-tool-action:hover:not(:disabled),
+.settings-dialog .scientific-tools-panel [data-component="button"].scientific-tool-action:focus-visible:not(:disabled) {
+  background: var(--settings-surface-hover);
+}
+
+.settings-dialog .scientific-tools-panel [data-component="icon-button"].scientific-tool-source {
+  width: var(--tools-control-height);
+  height: var(--tools-control-height);
+  min-width: var(--tools-control-height);
+  min-height: var(--tools-control-height);
+  border: 0;
+  background: transparent;
+  color: var(--text-weak);
+  box-shadow: none;
+}
+
+.settings-dialog .scientific-tools-panel [data-component="icon-button"].scientific-tool-source:hover:not(:disabled),
+.settings-dialog
+  .scientific-tools-panel
+  [data-component="icon-button"].scientific-tool-source:focus-visible:not(:disabled) {
+  background: var(--settings-surface-hover);
+  color: var(--text-strong);
+}
+
+.scientific-tools-notice {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--settings-radius-control);
+  background: var(--settings-surface-muted);
+  color: var(--text-weak);
+  font-size: 12px;
+  line-height: 18px;
+  text-wrap: pretty;
+}
+
+.scientific-tools-footnote {
+  margin: 0;
+  color: var(--text-weak);
+  font-size: 11px;
+  line-height: 16px;
+  text-wrap: pretty;
+}
+
+/* Break on the Settings column, not the viewport: the rail and expanded
+   dialog change the available width without changing the window. */
+@container settings-main (max-width: 700px) {
+  .settings-dialog .scientific-tools-panel .scientific-tool-row {
+    grid-template-columns: 32px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .scientific-tool-row__actions {
+    grid-column: 2;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .scientific-tool-row__copy > span {
+    overflow: visible;
+    white-space: normal;
+    text-wrap: pretty;
+  }
+}
+
+@media (pointer: coarse) {
+  .settings-dialog .scientific-tools-panel [data-component="button"].scientific-tool-action,
+  .settings-dialog .scientific-tools-panel [data-component="icon-button"].scientific-tool-source {
+    min-height: 44px;
+  }
+}
