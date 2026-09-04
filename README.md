@@ -3,9 +3,9 @@
 > **[中文化] openscience**
 >
 > 此项目是 [synthetic-sciences/openscience](https://github.com/synthetic-sciences/openscience) 的中文翻译版本。
-> - 原项目 Stars: 0
-> - 主语言: 
-> - 许可证: 
+> - 原项目 Stars: 3448
+> - 主语言: TypeScript
+> - 许可证: Apache-2.0
 > - 翻译日期: 2026-09-04
 > - 原始 README: [README_en.md](README_en.md)
 >
