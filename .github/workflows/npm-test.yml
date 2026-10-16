@@ -140,7 +140,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.version.outputs.source }}
       - uses: ./.github/actions/setup-bun
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
       - name: Restore immutable npm test artifacts
@@ -207,7 +207,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.version.outputs.source }}
       - uses: ./.github/actions/setup-bun
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
@@ -240,7 +240,7 @@ jobs:
         with:
           ref: ${{ needs.publish-test.outputs.source }}
       - uses: ./.github/actions/setup-bun
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
       - name: Set Playwright browser path
@@ -402,7 +402,7 @@ jobs:
           cat "$RUNNER_TEMP/openscience-fake-model.log" || true
       - name: Upload packaged E2E artifacts
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: npm-test-packaged-e2e-${{ github.run_attempt }}
           if-no-files-found: ignore
@@ -431,7 +431,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 25
     steps:
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
       - name: Install and smoke OpenScience test package
@@ -550,7 +550,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     steps:
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
       - name: Install and prove the Linux capability sandbox
@@ -628,7 +628,7 @@ jobs:
           NODE
       - name: Upload scientific capability evidence
         if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: npm-test-scientific-capability-${{ matrix.name }}-${{ github.run_attempt }}
           if-no-files-found: ignore
@@ -654,7 +654,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.version.outputs.source }}
       - uses: ./.github/actions/setup-bun
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"

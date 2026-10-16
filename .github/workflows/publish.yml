@@ -112,7 +112,7 @@ jobs:
                 "Run it from main with packaged E2E, OS smoke, and scientific canary enabled.",
             )
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
@@ -234,7 +234,7 @@ jobs:
           fail-on-cache-miss: true
       - name: Import Developer ID
         if: steps.signed.outputs.cache-hit != 'true'
-        uses: Apple-Actions/import-codesign-certs@5142e029c445c10ffc7149d172e540235a065466 # v7.0.0
+        uses: Apple-Actions/import-codesign-certs@77ba2a2a8f5cfc8c405ebf3159f767c323e238f9 # v7.1.0
         with:
           p12-file-base64: ${{ secrets.APPLE_DEVELOPER_ID_P12_BASE64 }}
           p12-password: ${{ secrets.APPLE_DEVELOPER_ID_P12_PASSWORD }}
@@ -387,7 +387,7 @@ jobs:
             git show "$WORKFLOW_SOURCE:$file" > "$file"
           done
       - uses: ./.github/actions/setup-bun
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
@@ -583,7 +583,7 @@ jobs:
               --trusted true
           fi
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         if: steps.existing.outputs.found != 'true'
         with:
           node-version: "24"
@@ -989,7 +989,7 @@ jobs:
             git show "$WORKFLOW_SOURCE:$file" > "$file"
           done
       - uses: ./.github/actions/setup-bun
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
